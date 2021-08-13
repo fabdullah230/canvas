@@ -24,6 +24,6 @@ public class CanvasApplication {
 				registry.addMapping("/**").allowedOrigins("*");
 			}
 		};
-	}//corsConfigurer
+	}
 
 }
