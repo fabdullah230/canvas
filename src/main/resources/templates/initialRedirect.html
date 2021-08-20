@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Getting Started: Serving Web Content</title>
+
+
+<!--  The script passes the JWT token as url param, then redirects to the React frontend-->
+<!--  The CDATA and all symbols are necessary to pass variable (JWT data) from mvc to javascript-->
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var data = /*[[${data}]]*/ 'default'
+        //alert(username);
+
+        window.location.href="http://192.168.1.116:3000?data="+data
+    }, false);
+
+    /*]]>*/
+</script>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<!--  <meta http-equiv="refresh" content="0; url=http://192.168.1.116:3000" />-->
+</head>
+<body>
+<p th:text="'Welcome home ' + ${username} + ' !'"/>
+<p th:text="'You made a POST request'" />
+<p th:text="${instructor}" />
+
+</body>
+</html>
