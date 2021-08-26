@@ -48,7 +48,7 @@ public class CanvasVGOAuthSecurityConfigurerAdapter extends WebSecurityConfigure
         http.antMatcher("/**")
                 .addFilterBefore(zeroLeggedOAuthProviderProcessingFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers("/cookie")
+                .antMatchers("/cookie", "/resttest")
                 .permitAll()
                 .anyRequest().hasRole("OAUTH")
                 .and().httpBasic().disable()//all disabled for testing purposes

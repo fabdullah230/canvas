@@ -49,7 +49,7 @@ public class HttpRequestParameters {
                 .signWith(secretKey)
                 .compact();
 
-        System.out.println(token);
+        //System.out.println(token);
         return token;
     }
 

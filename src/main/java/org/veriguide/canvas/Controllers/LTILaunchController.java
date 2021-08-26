@@ -42,7 +42,7 @@ public class LTILaunchController {
                 model.addAttribute("instructor", "You are an instructor, " + username);
             }
 
-            httpRequestParameters.print(httpServletRequest);
+            //httpRequestParameters.print(httpServletRequest);
             //createJWTtoken - bearer token
             String data = httpRequestParameters.createJWT(httpServletRequest);
 
@@ -60,9 +60,9 @@ public class LTILaunchController {
             cookieDataRepository.save(new CookieData(data));
             //checking to see if cookie saved
             Optional<CookieData> c = Optional.ofNullable(cookieDataRepository.findByData(data));
-            if(c.isPresent()){
-                System.out.println("cookie saved properly with data " + data);
-            }
+//            if(c.isPresent()){
+//                System.out.println("cookie saved properly with data " + data);
+//            }
             //add cookie
             httpServletResponse.addCookie(cookie);
             model.addAttribute("data", data);

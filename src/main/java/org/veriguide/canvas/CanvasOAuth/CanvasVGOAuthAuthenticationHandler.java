@@ -35,13 +35,16 @@ public class CanvasVGOAuthAuthenticationHandler implements OAuthAuthenticationHa
     public Authentication createAuthentication(HttpServletRequest request, ConsumerAuthentication authentication, OAuthAccessProviderToken authToken) {
         Collection<GrantedAuthority> authorities = new HashSet<>(authentication.getAuthorities());
         // attempt to create a user Authority
-        String username = request.getParameter("username");
+        String username = request.getParameter("tool_consumer_instance_name");
+        System.out.println("username: " + username);
 
-        //adding authorities, need to be modified for production build
+
             authorities.add(user);
-            authorities.add(admin);
             authorities.add(oauth);
 
+            if(request.getParameter("roles").toLowerCase().contains("instructor")){
+                authorities.add(admin);
+            }
 
         Principal principal = new NamedOAuthPrincipal(username, authorities,
                 authentication.getConsumerCredentials().getConsumerKey(),
