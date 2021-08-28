@@ -3,7 +3,6 @@ package org.veriguide.canvas.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,12 +57,9 @@ public class LTILaunchController {
 
             //store in redis
             cookieDataRepository.save(new CookieData(data));
-            //checking to see if cookie saved
+            //checking to see if cookie saved, else will throw exception and send status 500
             Optional<CookieData> c = Optional.ofNullable(cookieDataRepository.findByData(data));
-//            if(c.isPresent()){
-//                System.out.println("cookie saved properly with data " + data);
-//            }
-            //add cookie
+
             httpServletResponse.addCookie(cookie);
             model.addAttribute("data", data);
 

@@ -2,6 +2,7 @@ package org.veriguide.canvas.DBEntities.VGUser;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
@@ -23,6 +24,7 @@ public class VGUserService {
     }
 
 
+    @Transactional
     public void createVGUser(String userName, String roleString, String userId){
         VGUserRole role = VGUserRole.USER;
         Boolean isAdmin = false;

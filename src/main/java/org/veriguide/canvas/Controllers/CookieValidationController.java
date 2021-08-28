@@ -46,12 +46,13 @@ public class CookieValidationController {
     public String cookieValidation(HttpServletRequest httpServletRequest) throws Exception {
 
         String data = httpServletRequest.getHeader("data");
+        //checking to see if cookie saved, else will throw exception and send status 500
         Optional<CookieData> c = Optional.ofNullable(cookieDataRepository.findByData(data));
         if(c.isPresent()){
 
             //deal with creating user, course, assignment
             Jws<Claims> claimsJws = Jwts.parserBuilder().setSigningKey(secretKey).build().parseClaimsJws(data);
-            Claims body =claimsJws.getBody();
+            Claims body = claimsJws.getBody();
 
             //USER
             createEntitiesIfNotAvailable.checkVGUser(body);

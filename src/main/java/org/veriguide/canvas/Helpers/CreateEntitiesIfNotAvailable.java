@@ -59,6 +59,7 @@ public class CreateEntitiesIfNotAvailable {
             assignmentSubmissionAllowedAttempts = Integer.parseInt((String) body.get("custom_assignment_submission_attempt_allowed"));
         } catch (Exception e){}
 
+        //todo: make this 1 line
         if(!assignmentService.checkIfAssignmentExistsByAssignmentId(assignmentId)){
             System.out.println("Assignment does not exist");
             assignmentService.createAssignment(courseName, courseUUID, courseCode, userId, assignmentId, assignmentTitle, assignmentSubmissionAllowedAttempts);

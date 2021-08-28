@@ -2,6 +2,7 @@ package org.veriguide.canvas.DBEntities.Course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.UUID;
 
@@ -18,6 +19,7 @@ public class CourseService {
         return false;
     }
 
+    @Transactional
     public void createCourse(String courseName, String courseUUID, String courseCode, String creatorId){
         System.out.println("Saving course");
         courseRepository.save(new Course(courseName, courseUUID, courseCode, creatorId));
