@@ -3,7 +3,6 @@ package org.veriguide.canvas.DBEntities.VGUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.time.LocalDateTime;
 
 
@@ -12,8 +11,6 @@ public class VGUserService {
 
     @Autowired
     private VGUserRepository vgUserRepository;
-
-    //todo: implement check by user_id
 
     //checking by user_id
     public Boolean checkIfVGUserExistsByUserId(String userId){

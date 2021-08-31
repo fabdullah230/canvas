@@ -1,10 +1,9 @@
 package org.veriguide.canvas.DBEntities.Assignment;
 
 import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.UUID;
+
 
 @Entity
 @Table

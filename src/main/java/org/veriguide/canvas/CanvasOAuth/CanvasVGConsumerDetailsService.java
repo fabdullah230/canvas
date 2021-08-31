@@ -20,7 +20,7 @@ public class CanvasVGConsumerDetailsService implements ConsumerDetailsService {
 
             cd = new BaseConsumerDetails();
             cd.setConsumerKey(consumerKey);
-            cd.setSignatureSecret(new SharedConsumerSecretImpl("secret_key_123"));
+            cd.setSignatureSecret(new SharedConsumerSecretImpl("secret_key_123")); //should be changed and imported from application properties
             cd.setConsumerName("Sample");
             cd.setRequiredToObtainAuthenticatedToken(false); // no token required (0-legged)
             log.info("OAuth check SUCCESS, consumer key: " + consumerKey);

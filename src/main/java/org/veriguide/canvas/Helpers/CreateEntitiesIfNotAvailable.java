@@ -22,6 +22,7 @@ public class CreateEntitiesIfNotAvailable {
         this.assignmentService = assignmentService;
     }
 
+    //Check and create VGUser if not present
     public void checkVGUser(Claims body){
         String userName = (String)body.get("tool_consumer_instance_name");
         String roleString = (String) body.get("roles");
@@ -33,6 +34,7 @@ public class CreateEntitiesIfNotAvailable {
         }
     }
 
+    //Check and create Course if not present
     public void checkCourse(Claims body){
         String courseName = (String) body.get("context_title");
         String courseCode = (String) body.get("context_label");
@@ -45,6 +47,7 @@ public class CreateEntitiesIfNotAvailable {
         }
     }
 
+    //Check and create Assignment if not present
     public void checkAssignment(Claims body){
         String assignmentId = (String) body.get("ext_lti_assignment_id");
         String assignmentTitle = (String) body.get("custom_canvas_assignment_title");

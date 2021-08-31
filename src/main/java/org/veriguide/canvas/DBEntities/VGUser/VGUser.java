@@ -2,7 +2,6 @@ package org.veriguide.canvas.DBEntities.VGUser;
 
 
 import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 

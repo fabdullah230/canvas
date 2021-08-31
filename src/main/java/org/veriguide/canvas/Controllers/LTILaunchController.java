@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.veriguide.canvas.Cookie.CookieData;
 import org.veriguide.canvas.Cookie.CookieDataRepository;
 import org.veriguide.canvas.Helpers.HttpRequestParameters;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,11 +34,11 @@ public class LTILaunchController {
         try {
 
             String username = httpServletRequest.getParameter("tool_consumer_instance_name");
-            model.addAttribute("username", username);
-
-            if(httpServletRequest.getParameter("roles").toLowerCase().contains("instructor")){
-                model.addAttribute("instructor", "You are an instructor, " + username);
-            }
+//            model.addAttribute("username", username);
+//
+//            if(httpServletRequest.getParameter("roles").toLowerCase().contains("instructor")){
+//                model.addAttribute("instructor", "You are an instructor, " + username);
+//            }
 
             //httpRequestParameters.print(httpServletRequest);
             //createJWTtoken - bearer token
@@ -57,11 +56,8 @@ public class LTILaunchController {
 
             //store in redis
             cookieDataRepository.save(new CookieData(data));
-            //checking to see if cookie saved, else will throw exception and send status 500
-            Optional<CookieData> c = Optional.ofNullable(cookieDataRepository.findByData(data));
-
-            httpServletResponse.addCookie(cookie);
-            model.addAttribute("data", data);
+            httpServletResponse.addCookie(cookie); //saving as cookie, but iframe doesn't really use it
+            model.addAttribute("data", data); //passing token to model
 
             return "initialRedirect";
 

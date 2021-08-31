@@ -1,11 +1,9 @@
 package org.veriguide.canvas.DBEntities.Course;
 
 import org.hibernate.annotations.CreationTimestamp;
-import org.veriguide.canvas.DBEntities.VGUser.VGUser;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.UUID;
+
 
 @Entity
 @Table

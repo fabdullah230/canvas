@@ -12,7 +12,6 @@ import org.veriguide.canvas.DBEntities.Assignment.AssignmentService;
 import org.veriguide.canvas.DBEntities.Course.CourseService;
 import org.veriguide.canvas.DBEntities.VGUser.VGUserService;
 import org.veriguide.canvas.Helpers.CreateEntitiesIfNotAvailable;
-
 import javax.crypto.SecretKey;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;

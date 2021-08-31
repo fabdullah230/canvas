@@ -1,6 +1,5 @@
 package org.veriguide.canvas.CanvasOAuth;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -42,6 +41,7 @@ public class CanvasVGOAuthAuthenticationHandler implements OAuthAuthenticationHa
             authorities.add(user);
             authorities.add(oauth);
 
+            //adding admin authority if admin
             if(request.getParameter("roles").toLowerCase().contains("instructor")){
                 authorities.add(admin);
             }

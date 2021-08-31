@@ -3,13 +3,9 @@ package org.veriguide.canvas.Helpers;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 import org.springframework.stereotype.Service;
-
 import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
@@ -19,9 +15,10 @@ public class HttpRequestParameters {
 
     protected SecretKey secretKey = Keys.hmacShaKeyFor("6TimessecretKeysecretKeysecretKeysecretKeysecretKeysecretKey".getBytes());
 
+    //was used to print params for testing purposes
     public void print(HttpServletRequest httpServletRequest){
         Enumeration<String> params = httpServletRequest.getParameterNames();
-        System.out.println("invoked POST");
+        //System.out.println("Printing request parameters");
         while(params.hasMoreElements()){
             String paramName = params.nextElement();
             System.out.println("Parameter Name:" + paramName + ", Value:" + httpServletRequest.getParameter(paramName));
@@ -29,9 +26,8 @@ public class HttpRequestParameters {
     }
 
     public String createJWT(HttpServletRequest httpServletRequest){
-//        String prefix ="Bearer "; //bearer token
-        Enumeration<String> params = httpServletRequest.getParameterNames();
 
+        Enumeration<String> params = httpServletRequest.getParameterNames();
         HashMap<String, String> claims = new HashMap<>();
 
         System.out.println("creating JWT");
